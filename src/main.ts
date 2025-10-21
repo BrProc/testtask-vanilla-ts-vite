@@ -1,24 +1,51 @@
 import "./style.css";
-import typescriptLogo from "/typescript.svg";
-import viteLogo from "/vite.svg";
-import { setupCounter } from "./counter.ts";
+import { getUsers } from "./api.ts";
+import { listUsers } from "./components/userList.ts";
 
-document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
+const users = await getUsers("https://jsonplaceholder.typicode.com/users");
+
+document.querySelector<HTMLDivElement>("#app")!.innerHTML = /*html*/ `
   <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
+    <form class="filter-form" id="filter-form">
+      <label for="name">name:</label>   
+      <input type="text" name="name"/>
+
+      <label for="sort-by-length">Sort by length</label>
+      <input type="checkbox" name="sort-by-length"/>
+
+      <input type="submit" class="btn" value="filtering">
+    </form>
+
+    <div id="list-users"></div>
+
+    <div id="pivo-vodochka"></div>
     </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
   </div>
 `;
 
-setupCounter(document.querySelector<HTMLButtonElement>("#counter")!);
+users ? listUsers(users) : null;
+
+const form = document.querySelector<HTMLFormElement>("#filter-form")!;
+form.addEventListener("submit", (ev) => {
+  ev.preventDefault();
+
+  let modUsers = users;
+  const formData = new FormData(form);
+  const name = formData.get("name") as string;
+  const sortByLength = formData.get("sort-by-length") as string;
+
+  if (modUsers) {
+    if (name) {
+      modUsers = modUsers.filter((user) => user.name.includes(name));
+    }
+
+    if (sortByLength) {
+      console.log("sortByL" + sortByLength);
+      modUsers = modUsers.sort((a, b) => b.name.length - a.name.length);
+    } else {
+      modUsers = modUsers.sort((a, b) => a.name.length - b.name.length);
+    }
+
+    listUsers(modUsers);
+  }
+});

@@ -22,19 +22,9 @@ body {
 }
 
 #app {
-  max-width: 1280px;
+  max-width: 80rem;
   margin: 0 auto;
   padding: 2rem;
-  /* text-align: center; */
-}
-
-.card {
-  padding: 2em;
-  text-align: center;
-}
-
-.read-the-docs {
-  color: #888;
 }
 
 .btn {
@@ -56,26 +46,131 @@ body {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.filter-form {
+  display: flex;
+  gap: 0.3rem;
+  background-color: #213547;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  width: fit-content;
+  filter: drop-shadow(#4c4cac 0 0 5rem);
+}
+
+.filter-search-body {
+  background-color: #37325a;
+  border-radius: 0.8rem;
+  padding: 1rem;
+}
+.filter-search-body input {
+  border: none;
+  border-bottom: 3px solid darkmagenta;
+  border-radius: 0.2rem;
+  background-color: transparent;
+}
+.filter-search-body input:focus {
+  outline: none;
+  border-bottom: 3px solid magenta;
+  background-color: #213547;
+}
+
+.filter-form .sort {
+  background-color: #1a1a1a;
+  border-radius: 0.8rem;
+  width: 8rem;
+  height: 100%;
 }
 
 .card-array {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  gap: 3pt;
+  gap: 1rem;
+  width: fit-content;
 }
 
 .user-card {
   background-color: brown;
-  padding: 5pt;
+  border-radius: 0.3em 0.3em 0.4em 0.4em;
+  padding: 0;
+  width: 18em;
+}
+
+.user-card .card-body {
+  background-color: #213547;
+  border-radius: 0 0 0.3rem 0.3rem;
+  margin: 0.3rem 0 0 0;
+  padding: 0.5rem;
+  padding-top: 0rem;
+}
+.user-card .card-body p,
+.user-card .card-body h4 {
+  margin: 0;
+}
+
+.card-body .main-frame {
+  display: grid;
+  padding-top: 1.5rem;
+  grid-template-columns: 4.5rem auto;
+}
+
+.card-body hr {
+  border: none;
+  height: 2px;
+  background-color: black;
+  border-radius: 1px;
+}
+
+.user-card .profile-logo {
+  background-color: #747bff;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  text-align: center;
+  margin: auto 0;
+  height: 3rem;
+  width: 3rem;
+  font-size: 2rem;
+}
+
+.email {
+  background-color: #242424;
+  border-radius: 0.3rem;
+  padding: 0.5rem;
+  margin: 0;
+}
+
+button.fav {
+  border: 1px transparent;
+  font-size: 2rem;
+  padding: 0rem 0.5rem;
+  margin-top: 0.3rem;
+  background-color: transparent;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: lightblue;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  .btn {
+    color: #333;
+    background-color: #ddd;
+  }
+
+  .filter-form {
+    background-color: white;
+  }
+
+  .user-card .card-body {
+    background-color: white;
+  }
+
+  .card-body hr {
+    background-color: lightgray;
+  }
 }

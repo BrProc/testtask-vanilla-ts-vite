@@ -17,8 +17,6 @@ document.querySelector<HTMLDivElement>("#app")!.innerHTML = /*html*/ `
     </form>
 
     <div id="list-users"></div>
-
-    <div id="pivo-vodochka"></div>
     </div>
   </div>
 `;

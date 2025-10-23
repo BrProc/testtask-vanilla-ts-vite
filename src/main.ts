@@ -16,7 +16,7 @@ app.innerHTML = /*html*/ `
 const spinner = document.querySelector("#load-spinner")!;
 const users = await getUsers("https://jsonplaceholder.typicode.com/users");
 
-await new Promise((r) => setTimeout(r, 2000)); //for imitate loading
+// await new Promise((r) => setTimeout(r, 2000)); //for imitate loading
 
 if (users) {
   spinner.classList.add("hidden");

@@ -1,4 +1,4 @@
-import "./footer.css";
+import "../css/footer.css";
 import typescriptLogo from "/typescript.svg";
 import viteLogo from "/vite.svg";
 

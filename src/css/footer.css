@@ -1,6 +1,6 @@
 footer {
-  background-color: #d3c0c0;
-  padding: 2rem 5rem;
+  background-color: #213547;
+  padding: 1rem calc(100% / 8);
 }
 
 a {
@@ -25,4 +25,10 @@ a:hover {
 
 .read-the-docs {
   color: #888;
+}
+
+@media (prefers-color-scheme: light) {
+  footer {
+    background-color: #d3c0c0;
+  }
 }

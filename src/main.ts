@@ -6,11 +6,11 @@ import { mainPanel } from "./components/mainPanel.ts";
 const app = document.querySelector<HTMLDivElement>("#app")!;
 
 app.innerHTML = /*html*/ `
-<div>
-<div id="main-panel"></div>
-<div id="list-users"></div>
-<div id="load-spinner"></div>
-</div>
+<main>
+  <section id="main-panel"></section>
+  <section id="list-users"></section>
+  <section id="load-spinner"></section>
+</main>
 `;
 
 const spinner = document.querySelector("#load-spinner")!;

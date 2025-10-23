@@ -10,7 +10,7 @@ export function mainPanel(users: IUser[]) {
         </div>
 
         <div id="sort-btn-container">
-            <button id="sort-button" class="btn sort"></button>
+            <button id="sort-button" class="btn btn-sort"></button>
         <div>
     </div>
   `;

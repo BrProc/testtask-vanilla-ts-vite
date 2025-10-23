@@ -26,10 +26,10 @@ export function listUsers(users: IUser[]) {
                 ${
                   favorites.get(user.id)
                     ? /*html*/ `
-                  <button class="fav rm-fav" data-id="${user.id}">★</button>
+                  <button class="btn btn-fav rm-fav" data-id="${user.id}">★</button>
                   `
                     : /*html*/ `
-                  <button class="fav add-fav" data-id="${user.id}">☆</button>
+                  <button class="btn btn-fav add-fav" data-id="${user.id}">☆</button>
                   `
                 }
               </div>

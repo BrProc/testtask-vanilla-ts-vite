@@ -36,12 +36,15 @@ export function mainPanel(users: IUser[]) {
 
   function modUsersList() {
     let modUsers = users;
-    const name = searchField.value;
+    const query = searchField.value;
     const ascSort = sortBtn.dataset.value == "asc" ? true : false;
 
-    if (name) modUsers = modUsers.filter((user) => user.name.includes(name));
+    if (query)
+      modUsers = modUsers.filter((user) =>
+        user.name.toLowerCase().includes(query.toLocaleLowerCase())
+      );
 
-    if (ascSort) {
+    if (!ascSort) {
       modUsers = modUsers.sort((a, b) => a.name.length - b.name.length);
     } else {
       modUsers = modUsers.sort((a, b) => b.name.length - a.name.length);
